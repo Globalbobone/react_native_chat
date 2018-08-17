@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "Backend.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Globalbobone/react_native_chat.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "chat"
+  ],
+  "author": "Globalbob",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Globalbobone/react_native_chat/issues"
+  },
+  "homepage": "https://github.com/Globalbobone/react_native_chat#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http-server": "^0.11.1",
+    "mongoose": "^5.2.8",
+    "path": "^0.12.7",
+    "socket.io": "^2.1.1"
+  }
+}
