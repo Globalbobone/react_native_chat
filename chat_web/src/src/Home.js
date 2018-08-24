@@ -1,20 +1,27 @@
 import React from 'react';
-//import { Button } from 'react-bootstrap';
 import { socket } from '../socket';
 import PropTypes from 'prop-types';
 
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+
 export default class Home extends React.Component {
-  
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       name: '',
       //password: ''
     };
   }
 
   componentDidMount() {
-    socket.on('authSuccess', (user)=>{
+    socket.on('authSuccess', (user) => {
       this.props.onAuth(user);
     });
   }
@@ -22,16 +29,51 @@ export default class Home extends React.Component {
   registrationUser(e) {
     e.preventDefault();
     socket.connect();
-    if(this.state.name){
+    if (this.state.name) {
       socket.emit('user', this.state);
     } else {
       alert('You must enter name!');
     }
   }
- 
+
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <CssBaseline />
+        <main style={layout}>
+          <Paper style={paper}>
+            <Avatar style={avatar}>M</Avatar>
+            <Typography variant="headline">Sign in</Typography>
+            <form style={form}>
+              <FormControl margin="normal" required fullWidth>
+                <InputLabel htmlFor="name">Enter name...</InputLabel>
+                <Input
+                  onChange={(text) => this.setState({ name: text.target.value })}
+                  value={this.state.name} 
+                  id="name"
+                  name="name"
+                  autoFocus={true} />
+              </FormControl>
+              <Button
+                type="submit"
+                fullWidth
+                variant="raised"
+                color="primary"
+                style={submit}
+                onClick={this.registrationUser.bind(this)}
+                disabled={!this.state.name}
+              >
+                Sign in
+              </Button>
+              <p onClick={() => (alert('let`s create new account'))} style={headline}>
+                Create account >>>
+              </p>
+            </form>
+          </Paper>
+        </main>
+      </React.Fragment>
+
+      /*<div>
         <p style={title}>
           Name :
         </p>
@@ -45,39 +87,66 @@ export default class Home extends React.Component {
             <button onClick={this.registrationUser.bind(this)}> 
             Sign in!</button>
           </div>
-        <p onClick={()=> (alert('let`s create new account'))} style={headline}>
-          Create account >>>  
-        </p>
       </div>
+      
+      <FormControl margin="normal" required fullWidth>
+        <InputLabel htmlFor="password">Password</InputLabel>
+        <Input
+          name="password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        />
+      </FormControl>
+      */
     )
   }
 };
 
-const title = {
-    marginTop: 20,
-    marginLeft: 20,
-    fontSize: 20,
-  };
-
-const input = {
-  height: 40,
-  margin: 15,
+let layout = {
+  width: 'auto',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  justifyContent: 'center',
+  display: 'flex',
+  height: '50vh',
 };
 
-const headline = {
-    textAlign: 'center', 
-    fontWeight: 'bold',
-    fontSize: 16,
-    marginTop: 10,
-  };
+let paper = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  width: 600,
+  marginTop: 70,
+};
 
-  Home.defaultProps = {
-    name: 'max',
-  };
-  
-  Home.propTypes = {
-    name: PropTypes.string,
-  }
+let avatar = {
+  marginTop: 25,
+  backgroundColor: '#b5a4e9'
+};
+
+let form = {
+  //width: '100%', // Fix IE11 issue.
+};
+
+let submit = {
+  marginTop: 30,
+};
+
+let headline = {
+  textAlign: 'center',
+  fontWeight: 'bold',
+  fontSize: 16,
+  marginTop: 10,
+};
+
+Home.defaultProps = {
+  name: 'max',
+};
+
+Home.propTypes = {
+  name: PropTypes.string,
+}
 
 /*  -- PASSWORD SECTION
 

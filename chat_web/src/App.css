@@ -1,6 +1,5 @@
 
 html, body {
-  background: #e5e5e5;
   font-family: 'Lato', sans-serif;
   margin: 0px auto;
 }
@@ -9,16 +8,12 @@ html, body {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #475fb0;
+  
   padding: 20px;
   color: white;
+  border-bottom: black 1px solid;
 }
 
 .App-title {
@@ -62,24 +57,55 @@ input {
 input[type=text]:focus {
   border: 3px solid #555;
 }
-
+ol.chatroom {
+  padding: o;
+}
 li {
   list-style-type: none;
 }
 
-
-.chat {
-  list-style: none;
-  background: none;
-  margin: 0;
-  padding: 0 0 50px 0;
-  margin-top: 60px;
-  margin-bottom: 10px;
+.chatroom {
+  width: 600px;
+  height: 600px;
+  background-color:rgba(200, 200, 200, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 8px 0 rgba(0,0,0, 0.3);
+  margin: auto;
+  padding: o;
 }
+.chatroom h3 {
+  font-family: 'Pacifico', cursive;
+  background-color: rgba(30, 228, 148, 0.7);
+  color: #FFF;
+  margin: 0;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatroom .chats .chat {
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  
+  font-size: 14px;
+  border-radius: 10px;
+  list-style: none;
+  float: left;
+  clear: both;
+  margin: 10px 0;
+  max-width: 200px;
+  margin-top: 15px;
+}
+
 .chat li {
-  padding: 0.5rem;
   overflow: hidden;
   display: flex;
+  border: 1px solid grey;
+  border-radius: 12px;
+  background-color: lightgrey;
 }
 .chat .avatar {
   width: 40px;
