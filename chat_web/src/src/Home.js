@@ -1,7 +1,6 @@
 import React from 'react';
 import { socket } from '../socket';
 import PropTypes from 'prop-types';
-
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +15,6 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       name: '',
-      //password: ''
     };
   }
 
@@ -49,7 +47,7 @@ export default class Home extends React.Component {
                 <InputLabel htmlFor="name">Enter name...</InputLabel>
                 <Input
                   onChange={(text) => this.setState({ name: text.target.value })}
-                  value={this.state.name} 
+                  value={this.state.name}
                   id="name"
                   name="name"
                   autoFocus={true} />
@@ -61,44 +59,13 @@ export default class Home extends React.Component {
                 color="primary"
                 style={submit}
                 onClick={this.registrationUser.bind(this)}
-                disabled={!this.state.name}
-              >
+                disabled={!this.state.name}>
                 Sign in
               </Button>
-              <p onClick={() => (alert('let`s create new account'))} style={headline}>
-                Create account >>>
-              </p>
             </form>
           </Paper>
         </main>
       </React.Fragment>
-
-      /*<div>
-        <p style={title}>
-          Name :
-        </p>
-        <input 
-            style={input}
-            onChange={(text) => this.setState({name: text.target.value})}
-            value={this.state.name}
-            autoFocus={true}
-            placeholder='  Enter name...' />
-          <div>
-            <button onClick={this.registrationUser.bind(this)}> 
-            Sign in!</button>
-          </div>
-      </div>
-      
-      <FormControl margin="normal" required fullWidth>
-        <InputLabel htmlFor="password">Password</InputLabel>
-        <Input
-          name="password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        />
-      </FormControl>
-      */
     )
   }
 };
@@ -125,20 +92,11 @@ let avatar = {
   backgroundColor: '#b5a4e9'
 };
 
-let form = {
-  //width: '100%', // Fix IE11 issue.
-};
-
 let submit = {
   marginTop: 30,
 };
 
-let headline = {
-  textAlign: 'center',
-  fontWeight: 'bold',
-  fontSize: 16,
-  marginTop: 10,
-};
+let form = {};
 
 Home.defaultProps = {
   name: 'max',
@@ -148,15 +106,26 @@ Home.propTypes = {
   name: PropTypes.string,
 }
 
-/*  -- PASSWORD SECTION
 
-<Text style={styles.title}>
-          Password :
-        </Text>
-        <input 
-            onChangeText={(text) => this.setState({password: text})}
-            value={this.state.password}
-            secureTextEntry={true}
-            style={styles.nameInput} placeholder='  Enter password...' />
+/*
+--PASSWORD SECTION
 
-            */
+  < Text style = { styles.title } >
+    Password :
+        </Text >
+  <input
+    onChangeText={(text) => this.setState({ password: text })}
+    value={this.state.password}
+    secureTextEntry={true}
+    style={styles.nameInput} placeholder='  Enter password...' />
+------------------
+<FormControl margin="normal" required fullWidth>
+  <InputLabel htmlFor="password">Password</InputLabel>
+  <Input
+    name="password"
+    type="password"
+    id="password"
+    autoComplete="current-password"
+  />
+</FormControl>
+*/

@@ -1,16 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { socket } from '../socket';
-
-//import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-//import CssBaseline from '@material-ui/core/CssBaseline';
-//import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
-//import InputLabel from '@material-ui/core/InputLabel';
-//import LockIcon from '@material-ui/icons/LockOutlined';
-import Paper from '@material-ui/core/Paper';
-//import Typography from '@material-ui/core/Typography';
-//import withStyles from '@material-ui/core/styles/withStyles';
+//import * as ReactDOM from 'react-dom';
 
 export default class Chat extends React.Component {
   constructor(props) {
@@ -44,29 +36,35 @@ export default class Chat extends React.Component {
   }
 
   getItems() {
-    console.log(this.state.messages)
     return this.state.messages.map((item, i) => {
       return (
-        <Fragment>
-          <li className="chat chats" key={i}>
-            <p>{item.author.name + ': ' + item.message}</p>
-          </li>
-        </Fragment>
+        <li className={`chat msg ${this.props.user.name === item.author.name ? " right" : " left"}`} key={i}>
+          <p className="name"><span>{item.author.name + ':  '}</span></p>
+          <p className="message">{item.message}</p>
+        </li>
       );
     })
   }
-
+  componentDidUpdate(prevProps, prevState){
+    this.scrollToBottom();
+  }
+  
+  scrollToBottom() {
+    const {thing} = this.refs;
+    thing.scrollTop = thing.scrollHeight - thing.clientHeight;
+  }
   render() {
     return (
       <div style={paper}>
-        <h3>Hello, welcome to chat</h3>
-        <Paper style={paper}>
-          <ol className="chatroom">
+        <div className="chatroom" ref={`thing`}>
+          <h3>Hello,welcome to chat</h3>
+          <ul className="chats" things={1} >
             {this.getItems()}
-          </ol>
-        </Paper>
+          </ul>
+        </div>
         <form onSubmit={this.postMessage.bind(this)}>
           <Input type="text" placeholder="Enter your message..."
+            ref="msg"
             style={input}
             value={this.state.message}
             onChange={(text) => this.setState({ message: text.target.value })} />
@@ -92,4 +90,5 @@ let paper = {
   alignItems: 'center',
   width: 600,
   margin: 'auto',
+  marginTop: 10,
 };
