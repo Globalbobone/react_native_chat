@@ -66,7 +66,7 @@ li {
 }
 
 .chatroom .chats .chat {
-  background: rgba(255, 255, 255, 0.8);
+  /*background: rgba(255, 255, 255, 0.8);*/
   position: relative;
   
   font-size: 14px;
@@ -132,6 +132,7 @@ li {
 .left {
   float: left;
   clear: both;
+  background-color: white;
 }
 
 .right {
@@ -140,52 +141,7 @@ li {
     background-color: aliceblue;
 }
 
-.other .msg {
-  order: 1;
-  border-top-left-radius: 0px;
-  box-shadow: -1px 2px 0px #D4D4D4;
-}
-.other:before {
-  content: "";
-  position: relative;
-  top: 0px;
-  right: 0px;
-  left: 40px;
-  width: 0px;
-  height: 0px;
-  border: 5px solid #fff;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-}
-
-.self {
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-.self .msg {
-  order: 1;
-  border-bottom-right-radius: 0px;
-  box-shadow: 1px 2px 0px #D4D4D4;
-}
-.self .avatar {
-  order: 2;
-}
-.self .avatar:after {
-  content: "";
-  position: relative;
-  display: inline-block;
-  bottom: 19px;
-  right: 0px;
-  width: 0px;
-  height: 0px;
-  border: 5px solid #fff;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  box-shadow: 0px 2px 0px #D4D4D4;
-}
-
 .msg {
-  background: white;
   min-width: 50px;
   padding: 10px;
   border-radius: 2px;

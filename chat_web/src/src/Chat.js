@@ -39,6 +39,7 @@ export default class Chat extends React.Component {
     return this.state.messages.map((item, i) => {
       return (
         <li className={`chat msg ${this.props.user.name === item.author.name ? " right" : " left"}`} key={i}>
+          {/*<img className="chat avatar" src="https://avatars.io/platform/userId" alt=""></img>*/}
           <p className="name"><span>{item.author.name + ':  '}</span></p>
           <p className="message">{item.message}</p>
         </li>
@@ -67,11 +68,13 @@ export default class Chat extends React.Component {
             ref="msg"
             style={input}
             value={this.state.message}
+            autoFocus={true}
             onChange={(text) => this.setState({ message: text.target.value })} />
           <Button
             type="submit"
             variant="raised"
-            color="primary">Send message
+            color="primary"
+            disabled={!this.state.message}>Send message
           </Button>
         </form>
       </div>
