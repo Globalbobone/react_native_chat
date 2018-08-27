@@ -38,7 +38,7 @@ export default class Chat extends React.Component {
   getItems() {
     return this.state.messages.map((item, i) => {
       return (
-        <li className={`chat msg ${this.props.user.name === item.author.name ? " right" : " left"}`} key={i}>
+        <li className={`chat msg ${this.props.user.name === item.author.name ? ' right' : ' left'}`} key={i}>
           {/*<img className="chat avatar" src="https://avatars.io/platform/userId" alt=""></img>*/}
           <p className="name"><span>{item.author.name + ':  '}</span></p>
           <p className="message">{item.message}</p>
@@ -46,12 +46,12 @@ export default class Chat extends React.Component {
       );
     })
   }
-  componentDidUpdate(prevProps, prevState){
+  componentDidUpdate(){
     this.scrollToBottom();
   }
   
   scrollToBottom() {
-    const {thing} = this.refs;
+    const { thing } = this.refs;
     thing.scrollTop = thing.scrollHeight - thing.clientHeight;
   }
   render() {
@@ -80,14 +80,14 @@ export default class Chat extends React.Component {
       </div>
     )
   }
-};
+}
 
 const input = {
   height: 40,
   margin: 15,
 };
 
-let paper = {
+const paper = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

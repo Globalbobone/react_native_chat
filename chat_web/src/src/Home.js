@@ -68,9 +68,9 @@ export default class Home extends React.Component {
       </React.Fragment>
     )
   }
-};
+}
 
-let layout = {
+const layout = {
   width: 'auto',
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -79,7 +79,7 @@ let layout = {
   height: '50vh',
 };
 
-let paper = {
+const paper = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -87,16 +87,16 @@ let paper = {
   marginTop: 70,
 };
 
-let avatar = {
+const avatar = {
   marginTop: 25,
   backgroundColor: '#b5a4e9'
 };
 
-let submit = {
+const submit = {
   marginTop: 30,
 };
 
-let form = {};
+const form = {};
 
 Home.defaultProps = {
   name: 'max',
